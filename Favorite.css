@@ -1,0 +1,131 @@
+/* 🌟 Main Favorites Section */
+.favorite {
+  padding: 3rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #0d0d0d, #1a1a1a, #000);
+  color: white;
+  perspective: 1000px; /* Enables 3D effect */
+  animation: fadeInScene 1.5s ease-in-out;
+}
+
+/* 🎬 Title */
+.favorite h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2.8rem;
+  color: #ffcc00;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.8), 0 0 40px rgba(255, 50, 50, 0.5);
+  animation: glowTitle 2s ease-in-out infinite alternate;
+}
+
+/* 🍿 Empty State Box */
+.favorite-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  transform: rotateY(5deg);
+  animation: emptyBoxFloat 3s ease-in-out infinite alternate;
+}
+
+.favorite-empty h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #ff4757;
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.8);
+}
+
+.favorite-empty p {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 🎞️ Favorite Movies Grid */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  perspective: 1200px;
+}
+
+/* 🎥 Individual Movie Card Animation */
+.movies-grid > * {
+  opacity: 0;
+  transform: translateY(40px) rotateX(15deg) scale(0.95);
+  animation: fadeIn3D 0.8s ease-out forwards;
+}
+
+.movies-grid > *:hover {
+  transform: rotateY(10deg) scale(1.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 25px rgba(255, 75, 43, 0.6);
+}
+
+/* 🌈 Animations */
+
+/* Smooth fade-in with 3D depth */
+@keyframes fadeIn3D {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotateX(15deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) scale(1);
+  }
+}
+
+/* Floating animation for empty state */
+@keyframes emptyBoxFloat {
+  from {
+    transform: rotateY(5deg) translateY(0);
+  }
+  to {
+    transform: rotateY(-5deg) translateY(-10px);
+  }
+}
+
+/* Title glow animation */
+@keyframes glowTitle {
+  from {
+    text-shadow: 0 0 10px #ffcc00, 0 0 30px #ff6600;
+  }
+  to {
+    text-shadow: 0 0 20px #ffe066, 0 0 50px #ff3366;
+  }
+}
+
+/* Background fade-in for whole section */
+@keyframes fadeInScene {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ✨ Responsive Design */
+@media (max-width: 768px) {
+  .favorite {
+    padding: 2rem 1rem;
+  }
+
+  .favorite h2 {
+    font-size: 2rem;
+  }
+
+  .favorite-empty {
+    padding: 2.5rem 1rem;
+  }
+}
